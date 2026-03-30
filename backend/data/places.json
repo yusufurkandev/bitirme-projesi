@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Ayasofya",
+    "city": "İstanbul",
+    "category": "culture",
+    "duration": 90,
+    "tags": ["family", "couple", "friends"]
+  },
+  {
+    "id": 2,
+    "name": "Galata Kulesi",
+    "city": "İstanbul",
+    "category": "culture",
+    "duration": 60,
+    "tags": ["couple", "friends"]
+  },
+  {
+    "id": 3,
+    "name": "Belgrad Ormanı",
+    "city": "İstanbul",
+    "category": "nature",
+    "duration": 120,
+    "tags": ["family", "friends"]
+  },
+  {
+    "id": 4,
+    "name": "Kapadokya",
+    "city": "Nevşehir",
+    "category": "nature",
+    "duration": 240,
+    "tags": ["couple", "family"]
+  },
+  {
+    "id": 5,
+    "name": "Karaköy Yemek Turu",
+    "city": "İstanbul",
+    "category": "food",
+    "duration": 90,
+    "tags": ["couple", "friends"]
+  }
+]
