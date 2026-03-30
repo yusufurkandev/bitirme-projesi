@@ -4,6 +4,8 @@ const pool = require("./db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const places = require("./data/places.json");
+
 const SECRET_KEY = "supersecretkey";
 
 const app = express();
@@ -125,6 +127,36 @@ app.get("/profile", authMiddleware, (req, res) => {
   res.json({
     message: "Gizli veri",
     user: req.user
+  });
+});
+
+app.post("/generate-route", (req, res) => {
+  const { traveler, trip, duration } = req.body;
+
+  let filtered = places.filter(p => p.category === trip);
+
+  filtered = filtered.filter(p => p.tags.includes(traveler));
+
+  let maxTime = 180;
+
+  if (duration === "1day") maxTime = 180;
+  if (duration === "2day") maxTime = 360;
+  if (duration === "3plus") maxTime = 600;
+
+  let total = 0;
+  let route = [];
+
+  for (let place of filtered) {
+    if (total + place.duration <= maxTime) {
+      route.push(place);
+      total += place.duration;
+    }
+  }
+
+  res.json({
+    success: true,
+    route,
+    totalTime: total
   });
 });
 
